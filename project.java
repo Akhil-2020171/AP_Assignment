@@ -132,7 +132,7 @@ class Slot_Available{
     void print(HashMap<String,Integer> ID_days,HashMap<String,Integer> ID_quantity,HashMap<String,String> ID_Type,HashMap<String,ArrayList<String>> info,
                 ArrayList<String> ArrayOfSlots ){
 
-        String information = "Day: "+ID_days.get(ID)+" "+", Available QTY: "+ID_quantity.get(ID)+", Vaccine: "+ID_Type.get(ID);
+        String information = "Day: "+ID_days.get(ID)+" "+" Available QTY: "+ID_quantity.get(ID)+" Vaccine: "+ID_Type.get(ID);
         ArrayList<String> item = new ArrayList<String>();
 
         ArrayOfSlots.add(information);
