@@ -55,9 +55,7 @@ public class Student implements View,AddComments {
                         System.out.println("Graded by    : "+Grade_inID.get(Assignments.get(i)));
                     }
                 }
-                System.out.println(1);
             }
-            System.out.println(1);
         }
         for(int i = 0 ; i<Quiz.size() ; i++){
             if(ID_Subquiz_grade.containsKey(Student_ID.get(id))){
@@ -77,9 +75,7 @@ public class Student implements View,AddComments {
                         System.out.println("Submission   : "+ID_Sub_Asg.get(Assignments.get(i)));
                     }
                 }
-                System.out.println(1);
             }
-            System.out.println(2);
         }
         for(int i = 0 ; i<Quiz.size() ; i++){
             if(ID_Subquiz_grade.containsKey(Student_ID.get(id))){
