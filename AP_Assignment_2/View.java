@@ -7,5 +7,5 @@ public interface View {
     void View_Lec_Materails();
 
     void View_Assessments();
-    
+        
 }
