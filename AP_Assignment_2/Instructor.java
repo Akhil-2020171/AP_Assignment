@@ -24,19 +24,19 @@ public class Instructor implements View,AddComments {
     public static Stack<String> Assignments = new Stack<String>();
     public static Stack<String> Quiz        = new Stack<String>();
 
-    public static HashMap<String,HashMap<String,String>> ID_Sub_Asg  = Student.ID_Sub_Asg;
-    public static HashMap<String,HashMap<String,String>> ID_Sub_quiz = Student.ID_Sub_quiz;
+    public static HashMap<String,String> ID_Sub_Asg  = Student.ID_Sub_Asg;
+    public static HashMap<String,String> ID_Sub_quiz = Student.ID_Sub_quiz;
 
     public static HashMap<String,HashMap<String,String>> ID_SubAsg_grade  = Student.ID_SubAsg_grade;
     public static HashMap<String,HashMap<String,String>> ID_Subquiz_grade = Student.ID_Subquiz_grade;
 
     public static HashMap<String,HashMap<String,Integer>> ID_Asg_marks  = new HashMap<String,HashMap<String,Integer>>();
     public static HashMap<String,HashMap<String,Integer>> ID_Quiz_marks = new HashMap<String,HashMap<String,Integer>>();
-    public static HashMap<String,String> Grade_inID = new HashMap<String,String>();
+    public static HashMap<String,String> Grade_inID                     = new HashMap<String,String>();
 
     public static HashMap<Integer,String> Instructor_ID    = new HashMap<Integer,String>();    // used in menu , for creating ids of the instructors
 
-    protected void menu(){
+    public void menu(){
         // MENU //
         System.out.println("----- INSTRUCTOR's MENU -----");
         System.out.println("1. Add class material");
@@ -53,7 +53,7 @@ public class Instructor implements View,AddComments {
         Instructor_ID.put(1,"I1");               // id = 1 ------ I1
     }
 
-    protected void close_assessment() throws IOException{
+    public void close_assessment() throws IOException{
         Reader.init(System.in);
         System.out.println("List of open Assessments");
         int a = 0;
@@ -74,13 +74,11 @@ public class Instructor implements View,AddComments {
             if(ID_St_A.containsKey("I0")){
                 if(ID_St_A.get("I0").contains(Assignments.get(ID))){
                     ID_St_A.get("I0").remove(Assignments.get(ID));
-                    //Assignments.remove(Assignments.get(ID));
                 }
             }
             if(ID_St_A.containsKey("I1")){
                 if(ID_St_A.get("I1").contains(Assignments.get(ID))){
                     ID_St_A.get("I1").remove(Assignments.get(ID));
-                    //Assignments.remove(Assignments.get(ID));
                 }
             }
         }
@@ -88,19 +86,17 @@ public class Instructor implements View,AddComments {
             if(ID_Q.containsKey("I0")){
                 if(ID_Q.get("I0").contains(Quiz.get(ID-a))){
                     ID_Q.get("I0").remove(Quiz.get(ID-a));
-                    //Quiz.remove(Quiz.get(ID-a));
                 }
             }
             if(ID_Q.containsKey("I1")){
                 if(ID_Q.get("I1").contains(Quiz.get(ID-a))){
                     ID_Q.get("I1").remove(Quiz.get(ID-a));
-                    //Quiz.remove(Quiz.get(ID-a));
                 }
             }
         }
     }
 
-    protected void Add_class_Materials(int option,int id) throws IOException{
+    public void Add_class_Materials(int option,int id) throws IOException{
         // option = 1  Add Lecture slide
         // option = 2  Add Lecture video
         // id = 0 ------ I0
@@ -144,7 +140,7 @@ public class Instructor implements View,AddComments {
         }
     }
 
-    protected void Add_Asseement(int option , int id) throws IOException{
+    public void Add_Asseement(int option , int id) throws IOException{
         // option = 1  Add Assignment
         // option = 2  Add Quiz
         // id = 0 ------ I0
@@ -161,18 +157,18 @@ public class Instructor implements View,AddComments {
             problem.add(statement);
             ID_St_A.put(Instructor_ID.get(id),problem);
             Asg_Marks.put(statement,marks);
-            Assignments.push(statement);
+            Assignments.add(statement);
         }
-        else{ // Quiz
+        else if(option==2){ // Quiz
             System.out.print("Enter quiz question : ");
             String Question = Reader.nextLine();
             quiz.add(Question);
             ID_Q.put(Instructor_ID.get(id),quiz);
-            Quiz.push(Question);
+            Quiz.add(Question);
         }
     }
 
-    protected void Grade_Assessments(int In_id)throws IOException{
+    public void Grade_Assessments(int In_id)throws IOException{
         Reader.init(System.in);
         System.out.println("List of Assesment");
         int a = 0;
@@ -189,14 +185,30 @@ public class Instructor implements View,AddComments {
         System.out.print("Enter ID of Assement to view submission : ");
         int ID = Reader.nextInt();
         System.out.println();
-        System.out.println("Choose ID from these ungraded submission");
-        System.out.println("0.-- S0");
-        System.out.println("1.-- S1");
-        int id = Reader.nextInt();
-        System.out.println();
+
         if(ID<a){
-            HashMap<String,String> submission = ID_Sub_Asg.get(Student.Student_ID.get(id));
-            System.out.println("Submission: "+submission.get(Assignments.get(ID)));
+            System.out.println("Choose ID from these ungraded submission");
+            if(ID_Sub_Asg.containsKey(Assignments.get(ID))){
+                if(ID_SubAsg_grade.containsKey("S0")){
+                    if(ID_SubAsg_grade.get("S0").get(Assignments.get(ID)).equals("ungraded")){
+                        System.out.println("0.-- S0"); 
+                    }
+                }
+                if(ID_SubAsg_grade.containsKey("S1")){
+                    if(ID_SubAsg_grade.get("S1").get(Assignments.get(ID)).equals("ungraded")){
+                        System.out.println("1.-- S1"); 
+                    }
+                }
+                if(ID_SubAsg_grade.containsKey("S2")){
+                    if(ID_SubAsg_grade.get("S2").get(Assignments.get(ID)).equals("ungraded")){
+                        System.out.println("2.-- S2"); 
+                    }
+                }
+            }
+            int id = Reader.nextInt();
+            System.out.println();
+            String submission = ID_Sub_Asg.get(Assignments.get(ID));
+            System.out.println("Submission: "+submission);
             System.out.println("-------------------------------------------------");
             System.out.println("Max MArks : "+Asg_Marks.get(Assignments.get(ID)));
             System.out.print("Marks Scored : ");
@@ -205,11 +217,33 @@ public class Instructor implements View,AddComments {
             Asg_marks.put(Assignments.get(ID),marks);
             Grade_inID.put(Assignments.get(ID),Instructor_ID.get(In_id));
             ID_Asg_marks.put(Student.Student_ID.get(id),Asg_marks);
-            ID_SubAsg_grade.get(Student.Student_ID.get(id)).replace(Assignments.get(ID),"graded");
+            if(ID_SubAsg_grade.containsKey(Student.Student_ID.get(id))){
+                ID_SubAsg_grade.get(Student.Student_ID.get(id)).replace(Assignments.get(ID),"graded");
+            }
         }
         if(ID>=a){
-            HashMap<String,String> submission = ID_Sub_quiz.get(Student.Student_ID.get(id));
-            System.out.println("Submission: "+submission.get(Quiz.get(ID-a)));
+            System.out.println("Choose ID from these ungraded submission");
+            if(ID_Sub_quiz.containsKey(Quiz.get(ID))){
+                if(ID_Subquiz_grade.containsKey("S0")){
+                    if(ID_Subquiz_grade.get("S0").get(Quiz.get(ID)).equals("ungraded")){
+                        System.out.println("0.-- S0"); 
+                    }
+                }
+                if(ID_Subquiz_grade.containsKey("S1")){
+                    if(ID_Subquiz_grade.get("S1").get(Quiz.get(ID)).equals("ungraded")){
+                        System.out.println("1.-- S1"); 
+                    }
+                }
+                if(ID_Subquiz_grade.containsKey("S2")){
+                    if(ID_Subquiz_grade.get("S2").get(Quiz.get(ID)).equals("ungraded")){
+                        System.out.println("2.-- S2"); 
+                    }
+                }
+            }
+            int id = Reader.nextInt();
+            System.out.println();
+            String submission = ID_Sub_quiz.get(Quiz.get(ID-a));
+            System.out.println("Submission: "+submission);
             System.out.println("-------------------------------------------------");
             System.out.println("Max MArks : 1");
             System.out.print("Marks Scored : ");
@@ -218,14 +252,16 @@ public class Instructor implements View,AddComments {
             Quiz_marks.put(Assignments.get(ID),marks);
             Grade_inID.put(Quiz.get(ID-a),Instructor_ID.get(In_id));
             ID_Quiz_marks.put(Student.Student_ID.get(id),Quiz_marks);
-            ID_Subquiz_grade.get(Student.Student_ID.get(id)).replace(Quiz.get(ID-a),"graded");
+            if(ID_Subquiz_grade.containsKey(Student.Student_ID.get(id))){
+                ID_Subquiz_grade.get(Student.Student_ID.get(id)).replace(Quiz.get(ID-a),"graded");
+            }
         }
     }
 
     @Override
     public void Add_Comments(String input,int id) {
         String timeStamp = timestamp();
-        if(ID_C.get(Instructor_ID.get(id)).isEmpty()){
+        if( ID_C.get(Instructor_ID.get(id))==null){
             ArrayList<String> comments = new ArrayList<String>();
             comments.add(input);
             ID_C.put(Instructor_ID.get(id),comments);
@@ -239,13 +275,13 @@ public class Instructor implements View,AddComments {
 
     @Override
     public void View_Comment() {
-        if(!ID_C.get("I0").isEmpty()){
+        if(ID_C.containsKey("I0")){
             for(int i=0 ; i<ID_C.get("I0").size() ;i++){
                 System.out.println(ID_C.get("I0").get(i)+"  --  "+"I0");
                 System.out.println(comment_timestamp.get(ID_C.get("I0").get(i)));
             }
         }
-        if(!ID_C.get("I1").isEmpty()){
+        if(ID_C.containsKey("I1")){
             for(int i=0 ; i<ID_C.get("I1").size() ;i++){
                 System.out.println(ID_C.get("I1").get(i)+"  --  "+"I1");
                 System.out.println(comment_timestamp.get(ID_C.get("I1").get(i)));

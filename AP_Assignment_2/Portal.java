@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class Portal{
     public static void main(String[] args) throws IOException{
+
         Reader.init(System.in);
 
         while(true){
@@ -67,6 +68,7 @@ public class Portal{
                         View student    = new Student();
                         instructor.View_Comment();
                         student.View_Comment();
+                        System.out.println();
                     }
                     else if(access==8){
                         System.out.println();
@@ -128,6 +130,7 @@ public class Portal{
                         View student    = new Student();
                         instructor.View_Comment();
                         student.View_Comment();
+                        System.out.println();
                     }
                     else if(access==6){
                         System.out.println();
