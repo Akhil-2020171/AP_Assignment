@@ -1,4 +1,4 @@
-package AP_Assignment_1;
+package AP_Assignment.AP_Assignment_1;
 
 import java.util.HashMap;
 import java.util.ArrayList;

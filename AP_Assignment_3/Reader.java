@@ -1,5 +1,3 @@
-package AP_Assignment.AP_Assignment_2;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,11 +29,15 @@ public class Reader {
         return Integer.parseInt( next() );
     }
 	
-    // static double nextDouble() throws IOException {
-    //     return Double.parseDouble( next() );
-    // }
+    static double nextDouble() throws IOException {
+        return Double.parseDouble( next() );
+    }
 
-    // static long nextLong() throws IOException{
-    //     return Long.parseLong( next() );
-    // }
+    static long nextLong() throws IOException{
+        return Long.parseLong( next() );
+    }
+
+    static float nextFloat() throws IOException{
+        return Float.parseFloat(next());
+    }
 }

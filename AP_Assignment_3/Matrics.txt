@@ -1,0 +1,33 @@
+There are ~15 types of Matrices:
+1. Rectangular Matrix
+2. Row Matrix
+3. Column Matrix
+4. Square Matrix
+5. Symmetric Matrix
+6. Skew-symmetric Matrix
+7. Upper-triangular Matrix
+8. Lower-triangular Matrix
+9. Singular Matrix
+10. Diagonal Matrix
+11. Scalar Matrix
+12. Identity Matrix
+13. Singleton Matrix
+14. Ones Matrix
+15. Null Matrix
+
+Functionality
+1. Take matrices as input and label them with appropriate matrix-types.
+2. Create matrices of requested matrix-types and label them with appropriate matrix-types.
+3. Change the elements of a matrix as long as the fixed matrix-type labels remain valid.
+4. Display all the matrix-type labels of a requested matrix.
+5. Perform addition, subtraction, multiplication & division.
+6. Perform element-wise operations.
+7. Transpose matrices.
+8. Inverse matrices.
+9. Compute means: row-wise mean, column-wise mean, mean of all the elements.
+10. Compute determinants.
+11. Use singleton matrices as scalars, if requested.
+12. Compute A+AT for a matrix A.
+13. Compute Eigen vectors and values.
+14. Solve sets of linear equations using matrices.
+15. Retrieve all the existing matrices (entered or created) having requested matrix-type labels.

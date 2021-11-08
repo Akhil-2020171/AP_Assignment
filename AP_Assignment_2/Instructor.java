@@ -1,4 +1,4 @@
-package AP_Assignment_2;
+package AP_Assignment.AP_Assignment_2;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
