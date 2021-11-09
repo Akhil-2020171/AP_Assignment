@@ -17,4 +17,8 @@ public class Ones {
             one.add(o);
         }
     }
+
+    public static boolean getOnes(float[][] m){
+        return one.contains(m);
+    }
 }

@@ -36,4 +36,8 @@ public class Skew_Symmetric {
         }
         return flag;
     }
+
+    public static boolean getSkew(float[][] m){
+        return Sk_sym.contains(m);
+    }
 }

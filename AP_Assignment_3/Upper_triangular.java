@@ -12,4 +12,8 @@ public class Upper_triangular {
             }
         }
     }
+
+    public static boolean getUT(float[][] m){
+        return UT.contains(m);
+    }
 }

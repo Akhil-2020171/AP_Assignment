@@ -8,4 +8,8 @@ public class Square {
             Sq.add(s);
         }
     }
+
+    public static boolean getSquare(float[][] m){
+        return Sq.contains(m);
+    }
 }

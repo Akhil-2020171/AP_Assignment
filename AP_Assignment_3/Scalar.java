@@ -18,4 +18,8 @@ public class Scalar {
             }
         }
     }
+
+    public static boolean getScalar(float[][] m){
+        return S.contains(m);
+    }
 }

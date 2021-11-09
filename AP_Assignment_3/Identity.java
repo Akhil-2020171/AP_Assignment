@@ -16,4 +16,8 @@ public class Identity {
             }
         }
     }
+
+    public static boolean getIdentity(float[][] m){
+        return Ide.contains(m);
+    }
 }

@@ -8,4 +8,8 @@ public class Reactangular {
             R.add(r);
         }
     }
+
+    public static boolean getRectangular(float[][] m){
+        return R.contains(m);
+    }
 }

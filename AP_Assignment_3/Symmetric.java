@@ -36,4 +36,8 @@ public class Symmetric {
         }
         return flag;
     }
+
+    public static boolean getSymmetric(float[][] m){
+        return sym.contains(m);
+    }
 }

@@ -47,4 +47,8 @@ public class Singular {
             }
         }
     }
+
+    public static boolean getSingular(float[][] m){
+        return sin.contains(m);
+    }
 }

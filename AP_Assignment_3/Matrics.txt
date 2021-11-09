@@ -1,8 +1,8 @@
 There are ~15 types of Matrices:
 1. Rectangular Matrix
-2. Row Matrix
+2. Square Matrix
 3. Column Matrix
-4. Square Matrix
+4. Row Matrix
 5. Symmetric Matrix
 6. Skew-symmetric Matrix
 7. Upper-triangular Matrix

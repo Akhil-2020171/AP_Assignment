@@ -12,4 +12,8 @@ public class Lower_triangular {
             }
         }
     }
+
+    public static boolean getLT(float[][] m){
+        return LT.contains(m);
+    }
 }

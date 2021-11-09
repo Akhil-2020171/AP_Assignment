@@ -16,4 +16,8 @@ public class Null {
             N.add(n);
         }
     }
+
+    public static boolean getNull(float[][] m){
+        return N.contains(m);
+    }
 }

@@ -14,4 +14,8 @@ public class Diagonal {
             }
         }
     }
+
+    public static boolean getDiagonal(float[][] m){
+        return Dia.contains(m);
+    }
 }

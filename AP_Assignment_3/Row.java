@@ -8,4 +8,8 @@ public class Row {
             R.add(r);
         }
     }
+
+    public static boolean getRow(float[][] m){
+        return R.contains(m);
+    }
 }

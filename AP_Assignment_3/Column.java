@@ -8,4 +8,8 @@ public class Column {
             col.add(colm); 
         }
     }
+
+    public static boolean getColumn(float[][] m){
+        return col.contains(m);
+    }
 }
