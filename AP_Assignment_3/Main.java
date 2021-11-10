@@ -1,19 +1,16 @@
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
     private static HashMap<String,double[][]> MatrixObject = new HashMap<>(); // ID with matrix
     private static HashMap<String,String> MatrixDimension  = new HashMap<>(); // ID with matrix dimensions
     
-    private static ArrayList<Object> Type = new ArrayList<>(); // Matrix type object
-
     public static void main(String[] args) throws IOException{
         Reader.init(System.in);
-
+        System.out.println();
         try{
             while(true){
-                System.out.println("Press 1 to which types of matrices are implemented.");
+                System.out.println("Press 1 to see which types of matrices are implemented here.");
                 System.out.println("Press 2 to perform the tasks for Task menu.");
                 System.out.println("Press 3 to abort operation.");
                 System.out.println();
@@ -26,8 +23,8 @@ public class Main {
                 else if(query == 2){
                     menu2(); // For the functions of the matrices
                     System.out.println();
-                    System.out.println("Choose task to perfom (if not press - 0):");
                     while(true){
+                        System.out.println("Choose task to perfom (if not press - 0):");
                         int task = Reader.nextInt();
                         if(task==0){
                             break;
@@ -107,18 +104,23 @@ public class Main {
                             System.out.println("=================================");
                             System.out.println();
                         }
+                        else{
+                            System.out.println("Try Again! Task number can't be determined.");
+                            continue;
+                        }
                     }
                 }
                 else if(query==3){
                     break;
                 }
                 else{
-                    System.out.println("Try Again!");
+                    System.out.println("Try Again! Query number can't be determined.");
+                    continue;
                 }
             }
         }
         catch(Exception e){
-            System.out.println("Try Again!");
+            System.out.println("Try Again! Query number is not valid.");
         }
     }   
 
@@ -234,21 +236,6 @@ public class Main {
         Skew_Symmetric Sk_symmetry = new Skew_Symmetric(matrix, rows, col);
         Singular sin = new Singular(matrix, rows, col);
 
-        // Saving the objects in ArrayList //
-        Type.add(square);
-        Type.add(rectangle);
-        Type.add(row);
-        Type.add(column);
-        Type.add(identity);
-        Type.add(single);
-        Type.add(lt);
-        Type.add(ut);
-        Type.add(nu);
-        Type.add(one);
-        Type.add(scalar);
-        Type.add(symmetry);
-        Type.add(Sk_symmetry);
-        Type.add(sin);
     }
 
     private static void Create() throws IOException{
@@ -289,21 +276,6 @@ public class Main {
         Skew_Symmetric Sk_symmetry = new Skew_Symmetric(matrix, rows, col);
         Singular sin = new Singular(matrix, rows, col);
 
-        // Saving the objects in ArrayList //
-        Type.add(square);
-        Type.add(rectangle);
-        Type.add(row);
-        Type.add(column);
-        Type.add(identity);
-        Type.add(single);
-        Type.add(lt);
-        Type.add(ut);
-        Type.add(nu);
-        Type.add(one);
-        Type.add(scalar);
-        Type.add(symmetry);
-        Type.add(Sk_symmetry);
-        Type.add(sin);
     }
 
     private static void Change() throws IOException{
@@ -350,10 +322,11 @@ public class Main {
     private static void Display() throws IOException{
         Reader.init(System.in);
         System.out.println("Stored Matrices -----------");
+        System.out.println();
         for(String key : MatrixObject.keySet()){
             System.out.println(key + " with dimension "+ MatrixDimension.get(key));
         }
-
+        System.out.println();
         System.out.print("Choose matrix Name/ID : ");
         String ID = Reader.next();
 
@@ -417,11 +390,12 @@ public class Main {
 
         if(query==1){
             // Addition //
+            System.out.println();
             System.out.println("Stored Matrices -----------");
             for(String key : MatrixObject.keySet()){
                 System.out.println(key + " with dimension "+ MatrixDimension.get(key));
             }
-    
+            System.out.println();
             System.out.print("Choose any two matrix Name/ID : ");
             String ID1 = Reader.next(); // Matrix name 1
             String ID2 = Reader.next(); // Matrix name 2
@@ -441,7 +415,7 @@ public class Main {
                     }
                 }
 
-                System.out.println(MatrixObject.get(ID1)+" + "+MatrixObject.get(ID2)+" = ");
+                System.out.println(ID1+" + "+ID2+" = ");
                 for(int i = 0 ; i<rows ; i++){
                     for(int j = 0 ; j<columns ; j++){
                         System.out.print("    "+b[i][j]+"  ");
@@ -458,11 +432,12 @@ public class Main {
         }
         else if(query==2){
             // Subtraction //
+            System.out.println();
             System.out.println("Stored Matrices -----------");
             for(String key : MatrixObject.keySet()){
                 System.out.println(key + " with dimension "+ MatrixDimension.get(key));
             }
-    
+            System.out.println();
             System.out.print("Choose any two matrix Name/ID : ");
             String ID1 = Reader.next();
             String ID2 = Reader.next();
@@ -482,7 +457,7 @@ public class Main {
                     }
                 }
 
-                System.out.println(MatrixObject.get(ID1)+" - "+MatrixObject.get(ID2)+" = ");
+                System.out.println(ID1+" - "+ID2+" = ");
                 for(int i = 0 ; i<rows ; i++){
                     for(int j = 0 ; j<columns ; j++){
                         System.out.print("    "+b[i][j]+"  ");
@@ -499,11 +474,12 @@ public class Main {
         }
         else if(query==3){
             // Multiplication //
+            System.out.println();
             System.out.println("Stored Matrices -----------");
             for(String key : MatrixObject.keySet()){
                 System.out.println(key + " with dimension "+ MatrixDimension.get(key));
             }
-    
+            System.out.println();
             System.out.print("Choose any two matrix Name/ID : ");
             String ID1 = Reader.next();
             String ID2 = Reader.next();
@@ -528,7 +504,7 @@ public class Main {
                     }
                 }
 
-                System.out.println(MatrixObject.get(ID1)+" * "+MatrixObject.get(ID2)+" = ");
+                System.out.println(ID1+" * "+ID2+" = ");
                 for(int i = 0; i<row1 ; i++){
                     for(int j = 0 ; j< col2 ; j++){
                         System.out.print("  "+b[i][j]+"  ");
@@ -546,11 +522,12 @@ public class Main {
         }
         else if(query==4){
             // Division //
+            System.out.println();
             System.out.println("Stored Matrices -----------");
             for(String key : MatrixObject.keySet()){
                 System.out.println(key + " with dimension "+ MatrixDimension.get(key));
             }
-    
+            System.out.println();
             System.out.print("Choose any two matrix Name/ID : ");
             String ID1 = Reader.next();
             String ID2 = Reader.next();
@@ -578,7 +555,7 @@ public class Main {
                         }
                     }
     
-                    System.out.println(MatrixObject.get(ID1)+" / "+MatrixObject.get(ID2)+" = ");
+                    System.out.println(ID1+" / "+ID2+" = ");
                     for(int i = 0; i<row1 ; i++){
                         for(int j = 0 ; j< col2 ; j++){
                             System.out.print("  "+b[i][j]+"  ");
@@ -613,11 +590,12 @@ public class Main {
         int query = Reader.nextInt();
         if(query==1){
             // elemnet-wise Multiplication //
+            System.out.println();
             System.out.println("Stored Matrices -----------");
             for(String key : MatrixObject.keySet()){
                 System.out.println(key + " with dimension "+ MatrixDimension.get(key));
             }
-    
+            System.out.println();
             System.out.print("Choose any two matrix Name/ID with same dimensions : ");
             String ID1 = Reader.next();
             String ID2 = Reader.next();
@@ -638,7 +616,7 @@ public class Main {
                         C[i][j] = A[i][j]*B[i][j];
                     }
                 }
-                System.out.println(MatrixObject.get(ID1)+" .* "+MatrixObject.get(ID2)+" = ");
+                System.out.println(ID1+" .* "+ID2+" = ");
                 for(int i = 0; i<row1 ; i++){
                     for(int j = 0 ; j< col2 ; j++){
                         System.out.print("  "+C[i][j]+"  ");
@@ -655,11 +633,12 @@ public class Main {
         }
         else if(query==2){
             // elemnet-wise Division //
+            System.out.println();
             System.out.println("Stored Matrices -----------");
             for(String key : MatrixObject.keySet()){
                 System.out.println(key + " with dimension "+ MatrixDimension.get(key));
             }
-    
+            System.out.println();
             System.out.print("Choose any two matrix Name/ID with same dimensions : ");
             String ID1 = Reader.next();
             String ID2 = Reader.next();
@@ -680,7 +659,7 @@ public class Main {
                         C[i][j] = A[i][j]/B[i][j];
                     }
                 }
-                System.out.println(MatrixObject.get(ID1)+" ./ "+MatrixObject.get(ID2)+" = ");
+                System.out.println(ID1+" ./ "+ID2+" = ");
                 for(int i = 0; i<row1 ; i++){
                     for(int j = 0 ; j< col2 ; j++){
                         System.out.print("  "+C[i][j]+"  ");
@@ -699,11 +678,12 @@ public class Main {
 
     private static void Transpose() throws IOException{
         Reader.init(System.in);
+        System.out.println();
         System.out.println("Stored Matrices -----------");
         for(String key : MatrixObject.keySet()){
             System.out.println(key + " with dimension "+ MatrixDimension.get(key));
         }
-
+        System.out.println();
         System.out.print("Choose any matrix Name/ID : ");
         String ID1 = Reader.next();
 
@@ -719,9 +699,10 @@ public class Main {
                     B[i][j] = A[j][i];
                 }
             }
+            System.out.println("Transpose of "+ID1+" = ");
             for(int i = 0; i<rows ; i++){
                 for(int j = 0 ; j< columns ; j++){
-                    System.out.print(B[i][j]+"  ");
+                    System.out.print("  "+B[i][j]+"  ");
                 }
                 System.out.println();
             }
@@ -733,9 +714,10 @@ public class Main {
                     B[i][j] = A[j][i];
                 }
             }
+            System.out.println("Transpose of "+ID1+" = ");
             for(int i = 0; i<columns ; i++){
                 for(int j = 0 ; j<rows ; j++){
-                    System.out.print(B[i][j]+"  ");
+                    System.out.print("  "+B[i][j]+"  ");
                 }
                 System.out.println();
             }
@@ -744,11 +726,12 @@ public class Main {
 
     private static void Inverse() throws IOException{
         Reader.init(System.in);
+        System.out.println();
         System.out.println("Stored Matrices -----------");
         for(String key : MatrixObject.keySet()){
             System.out.println(key + " with dimension "+ MatrixDimension.get(key));
         }
-
+        System.out.println();
         System.out.print("Choose any matrix Name/ID : ");
         String ID1 = Reader.next();
 
@@ -758,9 +741,10 @@ public class Main {
 
         if(rows==columns){
             A = Inverse(A);
+            System.out.println("Inverse of "+ID1+" = ");
             for(int i = 0; i<rows ; i++){
                 for(int j = 0 ; j< columns ; j++){
-                    System.out.print(A[i][j]+"  ");
+                    System.out.print("  "+A[i][j]+"  ");
                 }
                 System.out.println();
             }
@@ -774,11 +758,12 @@ public class Main {
 
     private static void Means() throws IOException{
         Reader.init(System.in);
+        System.out.println();
         System.out.println("Stored Matrices -----------");
         for(String key : MatrixObject.keySet()){
             System.out.println(key + " with dimension "+ MatrixDimension.get(key));
         }
-
+        System.out.println();
         System.out.print("Choose any matrix Name/ID : ");
         String ID1 = Reader.next();
 
@@ -805,15 +790,10 @@ public class Main {
                 }
             }
 
-            for(int j= 0; j<columns ; j++){
-                Rmean[j] = Rmean[j]/columns;
-            }
-
-            System.out.println("Row Wise Mean : ");
-            for(int i = 0 ; i<rows ; i++){
-                System.out.print(Rmean[i] + "  ");
-            }
             System.out.println();
+            for(int i = 0; i<columns ;i++){
+                System.out.println(Rmean[i]/columns+"  ");
+            }
         }
         else if(query==2){
             // Column wise mean //
@@ -825,13 +805,9 @@ public class Main {
                 }
             }
 
-            for(int j = 0 ; j<rows ; j++){
-                Cmean[j] =  Cmean[j]/rows;
-            }
-
-            System.out.println("Row Wise Mean : ");
-            for(int i = 0 ; i<columns ; i++){
-                System.out.print(Cmean[i] + "  ");
+            System.out.println();
+            for(int i = 0; i<rows;i++){
+                System.out.print(Cmean[i]/rows+"  ");
             }
             System.out.println();
         }
@@ -850,11 +826,12 @@ public class Main {
 
     private static void Determinant() throws IOException{
         Reader.init(System.in);
+        System.out.println();
         System.out.println("Stored Matrices -----------");
         for(String key : MatrixObject.keySet()){
             System.out.println(key + " with dimension "+ MatrixDimension.get(key));
         }
-
+        System.out.println();
         System.out.print("Choose any matrix Name/ID : ");
         String ID1 = Reader.next();
 
@@ -864,7 +841,7 @@ public class Main {
 
         if(rows==columns){
             double d = Determinant(A, rows);
-            System.out.println("Determinant of "+MatrixObject.get(ID1)+" : "+d);
+            System.out.println("Determinant of "+ID1+" : "+d);
         }
         else{
             System.out.println("Dimensions of matrix "+ID1+" is "+MatrixDimension.get(ID1));
@@ -875,54 +852,61 @@ public class Main {
 
     private static void Scalar() throws IOException{
         Reader.init(System.in);
-        System.out.println("Stored Matrices -----------");
-        for(String key : MatrixObject.keySet()){
-            System.out.println(key + " with dimension "+ MatrixDimension.get(key));
-        }
-
-        System.out.print("Choose any matrix Name/ID : ");
-        String ID1 = Reader.next(); // Matrix name 1
-        double[][] A = MatrixObject.get(ID1);
         System.out.println();
-        System.out.print("Choose any Singleton Matrix : ");
-        String ID2 = Reader.next(); // Matrix name 2
-        double[][] B = MatrixObject.get(ID2);
-
-        if(Singleton.getSingleton(B)){
-            double k = B[0][0];
-
-            int rows = A.length;
-            int columns = A[0].length;
-
-            double[][] b = new double[rows][columns];
-            for(int i=0 ; i<rows ; i++){
-                for(int j = 0; j<columns ; j++){
-                    b[i][j] = k*A[i][j];
-                }
+        System.out.print("Do you allow using Singleton matrices as a scalar value (Y/N): ");
+        String ask = Reader.next();
+        if(ask.equals("Y")){
+            System.out.println();
+            System.out.println("Stored Matrices -----------");
+            for(String key : MatrixObject.keySet()){
+                System.out.println(key + " with dimension "+ MatrixDimension.get(key));
             }
             System.out.println();
-            System.out.println(MatrixObject.get(ID2)+" * "+MatrixObject.get(ID1));
-            for(int i=0; i<rows ;i++){
-                for(int j = 0; j<columns; j++){
-                    System.out.print("  "+b[i][j]+"  ");
+            System.out.print("Choose any matrix Name/ID : ");
+            String ID1 = Reader.next(); // Matrix name 1
+            double[][] A = MatrixObject.get(ID1);
+            System.out.println();
+            System.out.print("Choose any Singleton Matrix : ");
+            String ID2 = Reader.next(); // Matrix name 2
+            double[][] B = MatrixObject.get(ID2);
+    
+            if(Singleton.getSingleton(B)){
+                double k = B[0][0];
+    
+                int rows = A.length;
+                int columns = A[0].length;
+    
+                double[][] b = new double[rows][columns];
+                for(int i=0 ; i<rows ; i++){
+                    for(int j = 0; j<columns ; j++){
+                        b[i][j] = k*A[i][j];
+                    }
                 }
                 System.out.println();
+                System.out.println(ID2+" * "+ID1);
+                for(int i=0; i<rows ;i++){
+                    for(int j = 0; j<columns; j++){
+                        System.out.print("  "+b[i][j]+"  ");
+                    }
+                    System.out.println();
+                }
             }
-        }
-        else{
-            System.out.println("Dimensions of matrix "+ID2+" is "+MatrixDimension.get(ID2));
-            System.out.println();
-            System.out.println("Since matrix is not Singleton type, we cannot use it as Scalar Quantity.");
+            else{
+                System.out.println("Dimensions of matrix "+ID2+" is "+MatrixDimension.get(ID2));
+                System.out.println();
+                System.out.println("Since matrix is not Singleton type, we cannot use it as Scalar Quantity.");
+            }
         }
     }
 
     private static void A_At() throws IOException{
         Reader.init(System.in);
+        System.out.println();
         System.out.println("Stored Matrices -----------");
         for(String key : MatrixObject.keySet()){
             System.out.println(key + " with dimension "+ MatrixDimension.get(key));
         }
-
+        System.out.println();
         System.out.print("Choose any matrix Name/ID : ");
         String ID1 = Reader.next();
 
@@ -943,6 +927,7 @@ public class Main {
                     C[i][j] = A[i][j]+B[i][j];
                 }
             }
+            System.out.println(ID1+" Transpose of "+ID1+" = ");
             for(int i = 0; i<rows ; i++){
                 for(int j = 0 ; j< columns ; j++){
                     System.out.print(C[i][j]+"  ");
@@ -959,11 +944,12 @@ public class Main {
 
     private static void Eigen() throws IOException{
         Reader.init(System.in);
+        System.out.println();
         System.out.println("Stored Matrices -----------");
         for(String key : MatrixObject.keySet()){
             System.out.println(key + " with dimension "+ MatrixDimension.get(key));
         }
-
+        System.out.println();
         System.out.print("Choose any matrix Name/ID : ");
         String ID1 = Reader.next();
 
@@ -977,10 +963,11 @@ public class Main {
             double[][] m2 = eig.getD().getArray();
 
             // Eigen Values 
+            System.out.println("Eigen values of "+ID1+" = ");
             for(int i = 0 ; i<m2.length ; i++){
                 for(int j = 0 ; j<m2[0].length ; j++){
                     if(i==j){
-                        System.out.print((double)m2[i][j]+" ");
+                        System.out.print("  "+(double)m2[i][j]+" ");
                     }
                 }
                 System.out.println();
@@ -995,11 +982,12 @@ public class Main {
 
     private static void linear() throws IOException{
         Reader.init(System.in);
+        System.out.println();
         System.out.println("Stored Matrices -----------");
         for(String key : MatrixObject.keySet()){
             System.out.println(key + " with dimension "+ MatrixDimension.get(key));
         }
-
+        System.out.println();
         System.out.print("Choose any matrix Name/ID : ");
         String ID1 = Reader.next();
 
@@ -1009,7 +997,7 @@ public class Main {
         A = Inverse(A);
 
         if(rows==columns){
-            System.out.println("Choose column Matrix with same number of rows.");
+            System.out.print("Choose column Matrix with same number of rows : ");
             String ID2 = Reader.next();
             double[][] B = MatrixObject.get(ID2);
             int cols = B[0].length;
@@ -1022,6 +1010,7 @@ public class Main {
                         }
                     }
                 }
+                System.out.println("Inverse of "+ID1+" * "+ID2+" = ");
                 for(int i = 0 ; i<rows ; i++){
                     for(int j = 0 ; j<cols ; j++){
                         System.out.print("  "+b[i][j]);
@@ -1030,7 +1019,7 @@ public class Main {
                 }
             }
             else{
-                System.out.println("Dimensions of matrix "+ID1+" is "+MatrixDimension.get(ID2));
+                System.out.println("Dimensions of matrix "+ID2+" is "+MatrixDimension.get(ID2));
                 System.out.println();
                 System.out.println("Since matrix is not Column type, we cannot use it to solve Linear Equations.");
             }

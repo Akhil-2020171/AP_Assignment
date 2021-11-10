@@ -4,18 +4,20 @@ public class Skew_Symmetric {
     private static ArrayList<double[][]> Sk_sym = new ArrayList<double[][]>();   
 
     Skew_Symmetric(double[][] m , int rows, int columns){
-        double[][] mt = new double[rows][columns]; // for tranposing the matrix
+        if(rows==columns){
+            double[][] mt = new double[rows][columns]; // for tranposing the matrix
         
-        for(int i = 0 ; i<rows ; i++){
-            for(int j = 0; j<columns ; j++){
-                mt[i][j] = m[j][i];
+            for(int i = 0 ; i<rows ; i++){
+                for(int j = 0; j<columns ; j++){
+                    mt[i][j] = m[j][i];
+                }
             }
-        }
-
-        boolean flag = compare(m, mt, rows, columns);
-
-        if(flag){
-            Sk_sym.add(m);
+    
+            boolean flag = compare(m, mt, rows, columns);
+    
+            if(flag){
+                Sk_sym.add(m);
+            }
         }
     }
 
