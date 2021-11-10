@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class Column {
-    private static ArrayList<float[][]> col = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> col = new ArrayList<double[][]>();
 
-    Column(float[][] colm, int rows, int columns){
+    Column(double[][] colm, int rows, int columns){
         if(columns==1){
             col.add(colm); 
         }
     }
 
-    public static boolean getColumn(float[][] m){
+    public static boolean getColumn(double[][] m){
         return col.contains(m);
     }
 }

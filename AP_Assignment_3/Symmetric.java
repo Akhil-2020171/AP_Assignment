@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Symmetric {
-    private static ArrayList<float[][]> sym = new ArrayList<float[][]>();   
+    private static ArrayList<double[][]> sym = new ArrayList<double[][]>();   
 
-    Symmetric(float[][] m , int rows, int columns){
-        float[][] mt = new float[rows][columns]; // for tranposing the matrix
+    Symmetric(double[][] m , int rows, int columns){
+        double[][] mt = new double[rows][columns]; // for tranposing the matrix
         
         for(int i = 0 ; i<rows ; i++){
             for(int j = 0; j<columns ; j++){
@@ -19,7 +19,7 @@ public class Symmetric {
         }
     }
 
-    private static boolean compare(float[][] m , float[][] mt , int rows, int columns){
+    private static boolean compare(double[][] m , double[][] mt , int rows, int columns){
         boolean flag = true;
 
         //Calculates the number of rows and columns present in the first matrix  
@@ -37,7 +37,7 @@ public class Symmetric {
         return flag;
     }
 
-    public static boolean getSymmetric(float[][] m){
+    public static boolean getSymmetric(double[][] m){
         return sym.contains(m);
     }
 }

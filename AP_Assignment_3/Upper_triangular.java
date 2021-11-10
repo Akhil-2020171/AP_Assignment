@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Upper_triangular {
-    private static ArrayList<float[][]> UT = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> UT = new ArrayList<double[][]>();
     
-    Upper_triangular(float[][] m , int rows ,int columns){
+    Upper_triangular(double[][] m , int rows ,int columns){
         for(int i = 0 ; i<rows ; i++){
             for(int j =0 ; j<columns ; j++){
                 if(i>j && m[i][j]==0){
@@ -13,7 +13,7 @@ public class Upper_triangular {
         }
     }
 
-    public static boolean getUT(float[][] m){
+    public static boolean getUT(double[][] m){
         return UT.contains(m);
     }
 }

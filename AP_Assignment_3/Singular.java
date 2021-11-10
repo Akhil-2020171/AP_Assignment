@@ -1,27 +1,27 @@
 import java.util.ArrayList;
 
 public class Singular {
-    private static ArrayList<float[][]> sin = new ArrayList<float[][]>(); 
+    private static ArrayList<double[][]> sin = new ArrayList<double[][]>(); 
     
-    Singular(float[][] m ,int rows, int columns){
+    Singular(double[][] m ,int rows, int columns){
         if(rows==columns){
-            float determinant = Determinant(m,rows);
+            double determinant = Determinant(m,rows);
             if(determinant==0){
                 sin.add(m);
             }
         }
     }
 
-    private static float Determinant(float[][] m , int n){
-        float determinant=0;
+    private static double Determinant(double[][] m , int n){
+        double determinant=0;
 
         if(n==1){
             return m[0][0];
         }
 
-        float[][] temp = new float[n][n];
+        double[][] temp = new double[n][n];
 
-        float sign = 1;
+        double sign = 1;
 
         for(int f= 0 ; f<n ; f++){
             cofactor(m, temp, 0, f, n);
@@ -32,7 +32,7 @@ public class Singular {
         return determinant;
     }
 
-    private static void cofactor(float[][] m , float temp[][],int p , int q , int n){
+    private static void cofactor(double[][] m , double temp[][],int p , int q , int n){
         int i = 0, j = 0;
 
         for(int row = 0; row < n ; row++){
@@ -48,7 +48,7 @@ public class Singular {
         }
     }
 
-    public static boolean getSingular(float[][] m){
+    public static boolean getSingular(double[][] m){
         return sin.contains(m);
     }
 }

@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Ones {
-    private static ArrayList<float[][]> one = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> one = new ArrayList<double[][]>();
     
-    Ones(float[][] o , int rows, int columns){
+    Ones(double[][] o , int rows, int columns){
         int c = 0;
         for(int i=0; i<rows ; i++){
             for(int j = 0; j<columns ; j++){
@@ -18,7 +18,7 @@ public class Ones {
         }
     }
 
-    public static boolean getOnes(float[][] m){
+    public static boolean getOnes(double[][] m){
         return one.contains(m);
     }
 }

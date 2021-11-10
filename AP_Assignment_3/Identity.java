@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Identity {
-    private static ArrayList<float[][]> Ide = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> Ide = new ArrayList<double[][]>();
 
-    Identity(float[][] I , int rows, int columns){
+    Identity(double[][] I , int rows, int columns){
         if(rows==columns){
             for(int i = 0 ; i<rows ; i++){
                 for(int j = 0 ; j<columns ; j++){
@@ -17,7 +17,7 @@ public class Identity {
         }
     }
 
-    public static boolean getIdentity(float[][] m){
+    public static boolean getIdentity(double[][] m){
         return Ide.contains(m);
     }
 }

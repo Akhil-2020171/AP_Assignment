@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Diagonal {
-    private static ArrayList<float[][]> Dia = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> Dia = new ArrayList<double[][]>();
 
-    Diagonal(float[][] D, int rows, int columns){
+    Diagonal(double[][] D, int rows, int columns){
         if(rows==columns){
             for(int i = 0 ; i<rows ; i++){
                 for(int j = 0 ; j<columns ; j++){
@@ -15,7 +15,7 @@ public class Diagonal {
         }
     }
 
-    public static boolean getDiagonal(float[][] m){
+    public static boolean getDiagonal(double[][] m){
         return Dia.contains(m);
     }
 }

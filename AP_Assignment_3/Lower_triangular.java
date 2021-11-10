@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Lower_triangular {
-    private static ArrayList<float[][]> LT = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> LT = new ArrayList<double[][]>();
     
-    Lower_triangular(float[][] L , int rows ,int columns){
+    Lower_triangular(double[][] L , int rows ,int columns){
         for(int i = 0 ; i<rows ; i++){
             for(int j =0 ; j<columns ; j++){
                 if(i<j && L[i][j]==0){
@@ -13,7 +13,7 @@ public class Lower_triangular {
         }
     }
 
-    public static boolean getLT(float[][] m){
+    public static boolean getLT(double[][] m){
         return LT.contains(m);
     }
 }

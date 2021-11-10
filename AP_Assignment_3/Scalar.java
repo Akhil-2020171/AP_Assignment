@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Scalar {
-    private static ArrayList<float[][]> S = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> S = new ArrayList<double[][]>();
 
-    Scalar(float[][] scal , int rows, int columns){
-        float k = scal[0][0];
+    Scalar(double[][] scal , int rows, int columns){
+        double k = scal[0][0];
 
         if(rows==columns){
             for(int i = 0 ; i<rows ; i++){
@@ -19,7 +19,7 @@ public class Scalar {
         }
     }
 
-    public static boolean getScalar(float[][] m){
+    public static boolean getScalar(double[][] m){
         return S.contains(m);
     }
 }

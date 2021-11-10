@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class Singleton {
-    private static ArrayList<float[][]> Single = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> Single = new ArrayList<double[][]>();
 
-    Singleton(float[][] m , int rows ,int columns){
+    Singleton(double[][] m , int rows ,int columns){
         if(rows==1 && columns ==1){
             Single.add(m);
         }
     }
 
-    public static boolean getSingleton(float[][] m){
+    public static boolean getSingleton(double[][] m){
         return Single.contains(m);
     }
 }

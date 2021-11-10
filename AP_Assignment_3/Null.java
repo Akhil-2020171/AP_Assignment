@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Null {
-    private static ArrayList<float[][]> N = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> N = new ArrayList<double[][]>();
     
-    Null(float[][] n , int rows , int columns){
+    Null(double[][] n , int rows , int columns){
         int c=0;
         for(int i=0 ; i<rows ; i++){
             for(int j =0 ; j<columns ; j++){
@@ -17,7 +17,7 @@ public class Null {
         }
     }
 
-    public static boolean getNull(float[][] m){
+    public static boolean getNull(double[][] m){
         return N.contains(m);
     }
 }

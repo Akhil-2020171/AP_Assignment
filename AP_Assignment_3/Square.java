@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class Square {
-    private static ArrayList<float[][]> Sq = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> Sq = new ArrayList<double[][]>();
     
-    Square(float[][] s, int rows, int columns){
+    Square(double[][] s, int rows, int columns){
         if(rows==columns){
             Sq.add(s);
         }
     }
 
-    public static boolean getSquare(float[][] m){
+    public static boolean getSquare(double[][] m){
         return Sq.contains(m);
     }
 }

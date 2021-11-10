@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class Reactangular {
-    private static ArrayList<float[][]> R = new ArrayList<float[][]>();
+    private static ArrayList<double[][]> R = new ArrayList<double[][]>();
     
-    Reactangular(float[][] r, int rows, int columns){
+    Reactangular(double[][] r, int rows, int columns){
         if(rows!=columns){
             R.add(r);
         }
     }
 
-    public static boolean getRectangular(float[][] m){
+    public static boolean getRectangular(double[][] m){
         return R.contains(m);
     }
 }
