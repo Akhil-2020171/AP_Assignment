@@ -20,4 +20,10 @@ public class Null {
     public static boolean getNull(double[][] m){
         return N.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getNull(m)){
+            N.remove(m);
+        }
+    }
 }

@@ -21,4 +21,10 @@ public class Ones {
     public static boolean getOnes(double[][] m){
         return one.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getOnes(m)){
+            one.remove(m);
+        }
+    }
 }

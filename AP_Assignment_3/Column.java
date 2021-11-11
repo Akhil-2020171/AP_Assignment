@@ -12,4 +12,10 @@ public class Column {
     public static boolean getColumn(double[][] m){
         return col.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getColumn(m)){
+            col.remove(m);
+        }
+    }
 }

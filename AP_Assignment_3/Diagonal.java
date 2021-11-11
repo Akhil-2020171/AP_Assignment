@@ -18,4 +18,10 @@ public class Diagonal {
     public static boolean getDiagonal(double[][] m){
         return Dia.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getDiagonal(m)){
+            Dia.remove(m);
+        }
+    }
 }

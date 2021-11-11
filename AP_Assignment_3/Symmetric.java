@@ -42,4 +42,10 @@ public class Symmetric {
     public static boolean getSymmetric(double[][] m){
         return sym.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getSymmetric(m)){
+            sym.remove(m);
+        }
+    }
 }

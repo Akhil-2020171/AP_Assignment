@@ -12,4 +12,10 @@ public class Square {
     public static boolean getSquare(double[][] m){
         return Sq.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getSquare(m)){
+            Sq.remove(m);
+        }
+    }
 }

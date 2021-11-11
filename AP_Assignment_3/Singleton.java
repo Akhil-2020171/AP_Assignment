@@ -12,4 +12,10 @@ public class Singleton {
     public static boolean getSingleton(double[][] m){
         return Single.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getSingleton(m)){
+            Single.remove(m);
+        }
+    }
 }

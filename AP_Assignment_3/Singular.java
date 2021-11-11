@@ -51,4 +51,10 @@ public class Singular {
     public static boolean getSingular(double[][] m){
         return sin.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getSingular(m)){
+            sin.remove(m);
+        }
+    }
 }

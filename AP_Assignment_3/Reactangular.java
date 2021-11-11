@@ -12,4 +12,10 @@ public class Reactangular {
     public static boolean getRectangular(double[][] m){
         return R.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getRectangular(m)){
+            R.remove(m);
+        }
+    }
 }

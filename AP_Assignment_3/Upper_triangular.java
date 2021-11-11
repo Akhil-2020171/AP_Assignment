@@ -16,4 +16,10 @@ public class Upper_triangular {
     public static boolean getUT(double[][] m){
         return UT.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getUT(m)){
+            UT.remove(m);
+        }
+    }
 }

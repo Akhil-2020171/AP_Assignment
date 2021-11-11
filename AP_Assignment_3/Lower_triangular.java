@@ -16,4 +16,10 @@ public class Lower_triangular {
     public static boolean getLT(double[][] m){
         return LT.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getLT(m)){
+            LT.remove(m);
+        }
+    }
 }

@@ -12,4 +12,10 @@ public class Row {
     public static boolean getRow(double[][] m){
         return R.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getRow(m)){
+            R.remove(m);
+        }
+    }
 }

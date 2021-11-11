@@ -42,4 +42,10 @@ public class Skew_Symmetric {
     public static boolean getSkew(double[][] m){
         return Sk_sym.contains(m);
     }
+
+    public static void getRemove(double[][] m){
+        if(getSkew(m)){
+            Sk_sym.remove(m);
+        }
+    }
 }
