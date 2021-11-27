@@ -1,0 +1,8 @@
+#Question1
+title
+ISBN
+Bar code
+
+priority ----->   title < ISBN < bar code
+
+N books with K racks (K should be multiple of N)
